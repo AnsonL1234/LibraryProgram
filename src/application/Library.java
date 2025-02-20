@@ -20,9 +20,9 @@ public class Library {
     public int findIndexBook(String isbn) {
         for(int i = 0; i < booksList.size(); i++) {
             if(booksList.get(i).isbn().equals(isbn))
-                return i;
+                return i; // return the index value if found
         }
-        return -1;
+        return -1; // otherwise return -1 if not found
     }
 
     /**
@@ -36,17 +36,17 @@ public class Library {
         for (int i = booksList.size() - 1; i >= 0; i--) {
             book = booksList.get(bookIndex);
             if (booksList.get(i).equals(book)) {
-                return book;
+                return book; // return the value if found
             }
         }
-        return null;
+        return null; // otherwise return null
     }
 
     /**
      * 1.4 pure method for return the book by the Book object parameters
      */
     public void returnBook(Book book) {
-        booksList.add(book);
+        booksList.add(book); //add the book back to the list when returning
     }
 
     /**
@@ -63,8 +63,11 @@ public class Library {
 
         myLibrary = new Library(book);
 
+        //object that passing in the argument
         Member member1 = new Member(myLibrary);
         Member member2 = new Member(myLibrary);
+
+        //start the thread
         member1.start();
         member2.start();
 
